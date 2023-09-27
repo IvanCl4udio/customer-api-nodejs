@@ -2,6 +2,8 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: "customer-nodejs"
+  annotations:
+  'backstage.io/kubernetes-id': customer-api
 spec:
   type: service
   owner: user:guest

@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: customer-api
+        backstage.io/kubernetes-id: customer-api
     spec:
       containers:
       - name: customer-api
