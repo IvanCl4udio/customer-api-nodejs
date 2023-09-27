@@ -263,4 +263,7 @@ dist
 .history
 .ionide
 
+# Script for export environment variables tests
+export-var.sh
+
 # End of https://www.toptal.com/developers/gitignore/api/linux,visualstudiocode,intellij+all,node

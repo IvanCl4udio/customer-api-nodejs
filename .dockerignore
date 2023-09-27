@@ -1,0 +1,24 @@
+# Logs
+logs
+*.log
+
+# Diretório de dependências
+node_modules/
+
+# Diretório de cache do npm
+npm-debug.log*
+
+# Arquivos e diretórios de sistemas de controle de versão
+.git/
+.gitignore
+.gitattributes
+
+# Arquivos de configuração e ambiente 
+.env
+config.js
+
+# Outros arquivos/diretórios
+dist/
+build/
+*.tar.gz
+*.zip
