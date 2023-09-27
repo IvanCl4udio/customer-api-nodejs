@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  customer-db:
+    image: postgres
+    container_name: customer-nodejs-database
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: customer_db
+    volumes:
+      - local_pgdata_nodejs:/var/lib/postgresql/data
+  customer-db-pgadmin:
+    image: dpage/pgadmin4
+    container_name: customer-nodejs-pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: user@1234
+    volumes:
+      - pgadmin_data_nodejs:/var/lib/pgadmin
+
+volumes:
+  local_pgdata_nodejs: 
+  pgadmin_data_nodejs: 
