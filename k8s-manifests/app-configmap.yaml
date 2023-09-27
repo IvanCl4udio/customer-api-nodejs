@@ -1,0 +1,10 @@
+# app-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  DB_HOST: postgres
+  DB_USER: postgres
+  DB_NAME: customer_db
+  DB_DIALECT: postgres
