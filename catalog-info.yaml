@@ -4,6 +4,7 @@ metadata:
   name: "customer-nodejs"
   annotations:
     backstage.io/kubernetes-id: customer-api
+    backstage.io/kubernetes-namespace: default
 spec:
   type: service
   owner: user:guest
