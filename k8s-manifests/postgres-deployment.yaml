@@ -1,9 +1,12 @@
-# postgres-deployment.yaml
+# postgres-statefulset.yaml
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: postgres
+  labels:
+    backstage.io/kubernetes-id: customer-api
 spec:
+  serviceName: postgres
   replicas: 1
   selector:
     matchLabels:
@@ -12,6 +15,7 @@ spec:
     metadata:
       labels:
         app: postgres
+        backstage.io/kubernetes-id: customer-api
     spec:
       containers:
       - name: postgres
@@ -34,3 +38,15 @@ spec:
               key: DB_NAME
         ports:
         - containerPort: 5432
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 1Gi
+      storageClassName: standard

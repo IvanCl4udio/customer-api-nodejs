@@ -3,6 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: customer-api
+  labels:
+    backstage.io/kubernetes-id: customer-api
 spec:
   replicas: 2
   selector:
@@ -17,6 +19,13 @@ spec:
       containers:
       - name: customer-api
         image: ivancl4udio/customer-api:1.0.0
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         env:
         - name: DB_HOST
           valueFrom:

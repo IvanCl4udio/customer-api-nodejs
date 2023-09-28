@@ -3,6 +3,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgres
+  labels:
+    backstage.io/kubernetes-id: customer-api
 spec:
   selector:
     app: postgres
